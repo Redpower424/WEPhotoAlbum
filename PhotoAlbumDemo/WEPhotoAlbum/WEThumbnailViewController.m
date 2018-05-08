@@ -105,7 +105,6 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
 }
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"indexPath item : %li",(long)indexPath.row);
     WEBigImageViewController *bigImageVC = [[WEBigImageViewController alloc] initWithAssets:_allAssets selectIndex:indexPath.row selectedAssets:_selectAssetArray original:_isOriginalPhoto maxCount:_maxSelectCount];
     bigImageVC.modalPresentationStyle = UIModalPresentationPopover;
     __weak typeof(self) weakSelf = self;
@@ -133,7 +132,6 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
 #pragma mark - ThumbnailCollectionViewCellDelegate 图片选中按钮
 - (void)thumbnailCollectionViewCell:(ThumbnailCollectionViewCell *)cell didSelect:(BOOL)selected{
     if (_selectAssetArray.count >= _maxSelectCount && selected == NO) {
-        NSLog(@"最多选择10张图片");
         NSString *message = [NSString stringWithFormat:@"最多选择%li张照片",_maxSelectCount];
         [MBProgressHUD showText:message toView:nil];
         return;

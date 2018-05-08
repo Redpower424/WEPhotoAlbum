@@ -52,6 +52,7 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.naviView];

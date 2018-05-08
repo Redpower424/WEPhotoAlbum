@@ -78,7 +78,7 @@
     options.sortDescriptors = @[sortDescriptor];
     
     PHFetchResult *fetchResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
-    NSLog(@"fetchResult : %@",fetchResult);
+//    NSLog(@"fetchResult : %@",fetchResult);
     [fetchResult enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         PHAsset *asset = (PHAsset *)obj;
         [assets addObject:asset];
@@ -135,7 +135,7 @@
         if (downLoadFinished && completion) {
             
             NSData *jpegImageData = UIImageJPEGRepresentation([UIImage imageWithData:imageData], 1);
-            NSLog(@"原图大小：%.1lfKB",jpegImageData.length/1024.0);
+//            NSLog(@"原图大小：%.1lfKB",jpegImageData.length/1024.0);
             NSInteger maxLength = 100 * 1024;       //100KB
             UIImage *image = original?[UIImage imageWithData:jpegImageData]:[self compressImageWithImageData:jpegImageData maxLength:maxLength];     //压缩图片质量，最大100KB
             
@@ -165,7 +165,7 @@
     }
     //若此时已经压缩到期望大小，则返回image,
     image = [UIImage imageWithData:imageData];
-    NSLog(@"压缩质量后：%.1lfKB",imageData.length/1024.0);
+//    NSLog(@"压缩质量后：%.1lfKB",imageData.length/1024.0);
     if (imageData.length < maxLength) return image;
     
     //压缩图片尺寸
@@ -181,7 +181,7 @@
         imageData = UIImageJPEGRepresentation(image, 1);
     }
     image = [UIImage imageWithData:imageData];
-    NSLog(@"压缩尺寸后：%.1lfKB",imageData.length/1024.0);
+//    NSLog(@"压缩尺寸后：%.1lfKB",imageData.length/1024.0);
     
     return image;
 }

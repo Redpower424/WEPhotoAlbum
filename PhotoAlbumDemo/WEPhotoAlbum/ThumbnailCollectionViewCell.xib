@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThumbnailCellIdentifier" id="gTV-IL-0wX" customClass="ThumbnailCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="115" height="136"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="115" height="136"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WEPhotoAlbumBundle.bundle/defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Efq-fi-3eZ">
+                        <rect key="frame" x="0.0" y="0.0" width="115" height="136"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUs-DF-Cr4">
+                        <rect key="frame" x="75" y="0.0" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="LFD-jv-aT9"/>
+                            <constraint firstAttribute="width" constant="40" id="Lj6-iI-KxI"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="15" minY="5" maxX="5" maxY="15"/>
+                        <state key="normal" image="WEPhotoAlbumBundle.bundle/btn_unselected"/>
+                        <state key="selected" image="WEPhotoAlbumBundle.bundle/btn_selected"/>
+                        <connections>
+                            <action selector="selectButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LL1-dI-0EN"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Efq-fi-3eZ" secondAttribute="bottom" id="BGA-Gf-N6e"/>
+                <constraint firstItem="Efq-fi-3eZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Q1n-JZ-5mW"/>
+                <constraint firstAttribute="trailing" secondItem="MUs-DF-Cr4" secondAttribute="trailing" id="eUK-fP-Z4O"/>
+                <constraint firstItem="MUs-DF-Cr4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="i5e-me-JDU"/>
+                <constraint firstItem="Efq-fi-3eZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="isS-qk-5Wc"/>
+                <constraint firstAttribute="trailing" secondItem="Efq-fi-3eZ" secondAttribute="trailing" id="t7Q-nl-YtP"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="115" height="136"/>
+            <connections>
+                <outlet property="selectButton" destination="MUs-DF-Cr4" id="mGz-TT-Lrn"/>
+                <outlet property="thumbnailImageView" destination="Efq-fi-3eZ" id="03J-oJ-mse"/>
+            </connections>
+            <point key="canvasLocation" x="1.5" y="135"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="WEPhotoAlbumBundle.bundle/btn_selected" width="16" height="16"/>
+        <image name="WEPhotoAlbumBundle.bundle/btn_unselected" width="16" height="16"/>
+        <image name="WEPhotoAlbumBundle.bundle/defaultPhoto" width="16" height="16"/>
+    </resources>
+</document>

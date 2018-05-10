@@ -122,7 +122,7 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
     [self.navigationController pushViewController:bigImageVC animated:YES];
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (ScreenWidth - 5)/4.0;
+    CGFloat width = (KScreenWidth - 5)/4.0;
     return CGSizeMake(width, width);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -192,14 +192,14 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
     }
     self.maskView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
-        self.albumListTableView.frame = CGRectMake(0, 64, ScreenWidth, 5 * 70);
+        self.albumListTableView.frame = CGRectMake(0, KNaviHeight, KScreenWidth, 5 * 70);
         self.maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
     }];
 }
 //收起相册列表
 - (void)hideAlbumList{
     [UIView animateWithDuration:0.3 animations:^{
-        self.albumListTableView.frame = CGRectMake(0, 64, ScreenWidth, 0);
+        self.albumListTableView.frame = CGRectMake(0, KNaviHeight, KScreenWidth, 0);
         self.maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
     } completion:^(BOOL finished) {
         self.maskView.hidden = YES;
@@ -323,7 +323,7 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
         flowLayout.minimumLineSpacing = 1.0f;
         flowLayout.minimumInteritemSpacing = 1.0f;
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64 - 50) collectionViewLayout:flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, KNaviHeight, KScreenWidth, KScreenHeight - KNaviHeight - KTabbarHeight) collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor whiteColor];
@@ -333,7 +333,7 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
 }
 - (AlbumListTableView *)albumListTableView{
     if (!_albumListTableView) {
-        _albumListTableView = [[AlbumListTableView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, 0) style:UITableViewStylePlain];
+        _albumListTableView = [[AlbumListTableView alloc] initWithFrame:CGRectMake(0, KNaviHeight, KScreenWidth, 0) style:UITableViewStylePlain];
         _albumListTableView.albumDelegate = self;
         _albumListTableView.albumListDataArray = [[WEAlbumHandler shareInstance] getAllPhotoAlbumList];
     }
@@ -341,7 +341,7 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
 }
 - (UIView *)maskView{
     if (!_maskView) {
-        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64)];
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, KNaviHeight, KScreenWidth, KScreenHeight - KNaviHeight)];
         _maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
         _maskView.hidden = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskTapAction)];
@@ -351,12 +351,12 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
 }
 - (UIView *)naviView{
     if (!_naviView) {
-        _naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
+        _naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KNaviHeight)];
         _naviView.backgroundColor = BlueColor;
 
         //标题
         _titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _titleButton.frame = CGRectMake((_naviView.frame.size.width - 150)/2.0, 20, 150, 44);
+        _titleButton.frame = CGRectMake((_naviView.width - 150)/2.0, KStatusBarHeight, 150, KNaviHeightWithoutStatusBar);
         UIImage *openImage = IMAGEWITHBUNDLE_NAME(@"btn_title_open");
         UIImage *closeImage = IMAGEWITHBUNDLE_NAME(@"btn_title_close");
         [_titleButton setImage:openImage forState:UIControlStateNormal];
@@ -372,7 +372,7 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
         
         //取消
         UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        cancelButton.frame = CGRectMake(0, 20, 60, 44);
+        cancelButton.frame = CGRectMake(0, KStatusBarHeight, 60, KNaviHeightWithoutStatusBar);
         [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         cancelButton.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -381,7 +381,7 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
         
         //确定按钮
         _completeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _completeButton.frame = CGRectMake(_naviView.frame.size.width - 60, 20 + (44 - 35)/2.0, 60, 35);
+        _completeButton.frame = CGRectMake(_naviView.width - 60, KStatusBarHeight + (KNaviHeightWithoutStatusBar - 35)/2.0, 60, 35);
         _completeButton.layer.cornerRadius = 5.0f;
         _completeButton.layer.masksToBounds = YES;
         _completeButton.backgroundColor = BlueColor;
@@ -397,7 +397,7 @@ static NSString *identifier = @"ThumbnailCellIdentifier";
 }
 - (UIView *)bottomView{
     if (!_bottomView) {
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 50, ScreenWidth, 50)];
+        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, KScreenHeight - KTabbarHeight, KScreenWidth, KTabbarHeight)];
         _bottomView.backgroundColor = [UIColor whiteColor];
 
         //预览按钮

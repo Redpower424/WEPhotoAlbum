@@ -57,7 +57,7 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.naviView];
     [self.view addSubview:self.bottomView];
-    [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -88,7 +88,7 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
 }
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = ScreenWidth;
+    CGFloat width = KScreenWidth;
     CGFloat height = collectionView.height;
     return CGSizeMake(width, height);
 }
@@ -224,12 +224,12 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
 //导航栏
 - (UIView *)naviView{
     if (!_naviView) {
-        _naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
+        _naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KNaviHeight)];
         _naviView.backgroundColor = [UIColor whiteColor];
         
         //返回按钮
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backButton.frame = CGRectMake(0, 20, 60, 44);
+        backButton.frame = CGRectMake(0, KStatusBarHeight, 60, 44);
         [backButton setImage:IMAGEWITHBUNDLE_NAME(@"btn_back") forState:UIControlStateNormal];
         CGSize size = IMAGEWITHBUNDLE_NAME(@"btn_back").size;
         [backButton setImageEdgeInsets:UIEdgeInsetsMake((backButton.height - size.height)/2.0,15, (backButton.height - size.height)/2.0, backButton.width - 15 - size.width)];
@@ -238,7 +238,7 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
         [_naviView addSubview:backButton];
         
         //标题
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((_naviView.width - 150)/2.0, 20, 150, 44)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake((_naviView.width - 150)/2.0, KStatusBarHeight, 150, 44)];
         _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -247,7 +247,7 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
         
         //选择按钮
         _selectButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _selectButton.frame = CGRectMake(_naviView.width - 60 - 10, 20, 60, 44);
+        _selectButton.frame = CGRectMake(_naviView.width - 60 - 10, KStatusBarHeight, 60, 44);
         [_selectButton setImage:IMAGEWITHBUNDLE_NAME(@"btn_unselected") forState:UIControlStateNormal];
         [_selectButton setImage:IMAGEWITHBUNDLE_NAME(@"btn_selected") forState:UIControlStateSelected];
         size = IMAGEWITHBUNDLE_NAME(@"btn_selected").size;
@@ -269,7 +269,7 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
 //底栏
 - (UIView *)bottomView{
     if (!_bottomView) {
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 50, ScreenWidth, 50)];
+        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, KScreenHeight - KTabbarHeight, KScreenWidth, KTabbarHeight)];
         _bottomView.backgroundColor = [UIColor whiteColor];
         
         //原图按钮
@@ -311,7 +311,7 @@ static NSString *identifier = @"BigImageCollectionViewCellIdentifier";
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.minimumLineSpacing = 10.0f;
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(-5, 0, ScreenWidth + 10, ScreenHeight) collectionViewLayout:flowLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(-5, 0, KScreenWidth + 10, KScreenHeight) collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.pagingEnabled = YES;

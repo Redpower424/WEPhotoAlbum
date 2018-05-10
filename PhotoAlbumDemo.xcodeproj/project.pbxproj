@@ -15,6 +15,7 @@
 		5F476EB720A1476B009B1BCF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F476EB420A1476B009B1BCF /* MBProgressHUD.m */; };
 		5F476EB820A1476B009B1BCF /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F476EB520A1476B009B1BCF /* MBProgressHUD.bundle */; };
 		5F476EE620A17596009B1BCF /* WEPhotoAlbumBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F476EE520A17596009B1BCF /* WEPhotoAlbumBundle.bundle */; };
+		5F476EE920A2E3AC009B1BCF /* WEDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F476EE820A2E3AC009B1BCF /* WEDeviceModel.m */; };
 		5F951A56207C98A9004036D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F951A55207C98A9004036D6 /* AppDelegate.m */; };
 		5F951A59207C98A9004036D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F951A58207C98A9004036D6 /* ViewController.m */; };
 		5F951A5C207C98A9004036D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F951A5A207C98A9004036D6 /* Main.storyboard */; };
@@ -66,6 +67,8 @@
 		5F476EB620A1476B009B1BCF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		5F476EB920A151E0009B1BCF /* WEPhotoAlbum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WEPhotoAlbum.h; sourceTree = "<group>"; };
 		5F476EE520A17596009B1BCF /* WEPhotoAlbumBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WEPhotoAlbumBundle.bundle; sourceTree = "<group>"; };
+		5F476EE720A2E3AC009B1BCF /* WEDeviceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WEDeviceModel.h; sourceTree = "<group>"; };
+		5F476EE820A2E3AC009B1BCF /* WEDeviceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WEDeviceModel.m; sourceTree = "<group>"; };
 		5F951A51207C98A9004036D6 /* PhotoAlbumDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoAlbumDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F951A54207C98A9004036D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F951A55207C98A9004036D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				5F476EB120A146B5009B1BCF /* MBProgressHUD+WEExtension.h */,
 				5F476EB220A146B5009B1BCF /* MBProgressHUD+WEExtension.m */,
 				5FC3CD8D2099D0DA009C8945 /* WEDefine.h */,
+				5F476EE720A2E3AC009B1BCF /* WEDeviceModel.h */,
+				5F476EE820A2E3AC009B1BCF /* WEDeviceModel.m */,
 				5F951A86207C98EA004036D6 /* WEPhotoHelper.h */,
 				5F951A87207C98EA004036D6 /* WEPhotoHelper.m */,
 				5F95F5F2207E040000871F63 /* WEAlbumHandler.h */,
@@ -373,6 +378,7 @@
 				5FC3CD8820996D52009C8945 /* AlbumListTableViewCell.m in Sources */,
 				5FD262FB2093233E00EFBE47 /* ThumbnailCollectionViewCell.m in Sources */,
 				5F951A88207C98EA004036D6 /* WEPhotoHelper.m in Sources */,
+				5F476EE920A2E3AC009B1BCF /* WEDeviceModel.m in Sources */,
 				5F476E8120A0312E009B1BCF /* WESelectedImageModel.m in Sources */,
 				5F476E7B209C2B0E009B1BCF /* WEBigImageViewController.m in Sources */,
 				5F951A59207C98A9004036D6 /* ViewController.m in Sources */,

@@ -8,9 +8,33 @@
 #define WEDefine_h
 
 #import "UIView+WEExtension.h"
+#import "WEDeviceModel.h"
 
-#define ScreenWidth [UIScreen mainScreen].bounds.size.width
-#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define KScreenWidth [UIScreen mainScreen].bounds.size.width
+#define KScreenHeight [UIScreen mainScreen].bounds.size.height
+#define KStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height       //状态栏高度
+#define KNaviHeightWithoutStatusBar 44                                                      //导航栏除去状态栏的高度
+#define KNaviHeight KStatusBarHeight + KNaviHeightWithoutStatusBar                          //导航栏高度
+
+#define IS_iPhone4S [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 4S "]
+#define IS_iPhone5 [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 5 "]
+#define IS_iPhoneSE [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone SE "]
+#define IS_iPhone6 [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 6 "]
+#define IS_iPhone6S [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 6s "]
+#define IS_iPhone6Plus [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 6Plus"]
+#define IS_iPhone6sPlus [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 6sPlus"]
+#define IS_iPhone7 [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 7 "]
+#define IS_iPhone7Plus [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 7 Plus "]
+#define IS_iPhone8 [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 8 "]
+#define IS_iPhone8Plus [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 8 Plus"]
+#define IS_iPhoneX [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone X"]
+
+#ifdef IS_iPhoneX
+#define KTabbarHeight 83        //底栏高度
+#else
+#define
+#define KTabbarHeight 49
+#endif
 
 #define IMAGEWITHBUNDLE_NAME(name) [UIImage imageNamed:[NSString stringWithFormat:@"WEPhotoAlbumBundle.bundle/%@", name]]
 

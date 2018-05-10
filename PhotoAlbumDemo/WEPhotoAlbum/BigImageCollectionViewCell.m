@@ -28,7 +28,10 @@
 
 #pragma mark - UIScrollvViewDelegate
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView{
-    
+    //调整imageview的center
+    CGFloat offsetX = scrollView.width > scrollView.contentSize.width ? (scrollView.width - scrollView.contentSize.width)/2.0 : 0.0;
+    CGFloat offsetY = scrollView.height > scrollView.contentSize.height ? (scrollView.height - scrollView.contentSize.height)/2.0 : 0.0;
+    self.imageView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX, scrollView.contentSize.height * 0.5 + offsetY);
 }
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return scrollView.subviews[0];
@@ -93,7 +96,7 @@
 - (void)setAsset:(PHAsset *)asset{
     _asset = asset;
     CGFloat scale = [UIScreen mainScreen].scale;        //屏幕分辨率
-    CGFloat width = ScreenWidth * scale;
+    CGFloat width = KScreenWidth * scale;
     CGFloat height = width / (asset.pixelWidth/asset.pixelHeight);
     CGSize size = CGSizeMake(width, height);
     __weak typeof(self) weakSelf = self;
@@ -108,7 +111,7 @@
 - (void)resetSubViewsRect{
     CGSize imageSize = _imageView.image.size;
     CGFloat imageScale = imageSize.width / imageSize.height;
-    CGFloat screenScale = ScreenWidth/ ScreenHeight;
+    CGFloat screenScale = KScreenWidth/ KScreenHeight;
     CGRect frame = CGRectZero;
     if (imageScale < screenScale) {
         //长图

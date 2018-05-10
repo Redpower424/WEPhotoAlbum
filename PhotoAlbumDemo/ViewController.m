@@ -21,13 +21,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((ScreenWidth - 100)/2.0, 50, 100, 100)];
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((KScreenWidth - 100)/2.0, 50, 100, 100)];
     _imageView.contentMode = UIViewContentModeScaleAspectFill;
     _imageView.clipsToBounds = YES;
     [self.view addSubview:_imageView];
     
     UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    imageButton.frame = CGRectMake(0, ScreenHeight/2.0 - 25, ScreenWidth, 50);
+    imageButton.frame = CGRectMake(0, KScreenHeight/2.0 - 25, KScreenWidth, 50);
     [imageButton setTitle:@"选择相片" forState:UIControlStateNormal];
     [imageButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     imageButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -37,7 +37,7 @@
     [self.view addSubview:imageButton];
     
     UIButton *multipleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    multipleButton.frame = CGRectMake(0, ScreenHeight/2.0 + 25, ScreenWidth, 50);
+    multipleButton.frame = CGRectMake(0, KScreenHeight/2.0 + 25, KScreenWidth, 50);
     [multipleButton setTitle:@"多选相片" forState:UIControlStateNormal];
     [multipleButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     multipleButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -45,6 +45,10 @@
     multipleButton.layer.masksToBounds = YES;
     [multipleButton addTarget:self action:@selector(multipleButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:multipleButton];
+    
+    if (IS_iPhoneX) {
+        NSLog(@"是iPhone7啊");
+    }
     
 }
 
@@ -57,7 +61,7 @@
                 NSLog(@"取消了选择");
             }else{
                 CGFloat scale = image.size.height / image.size.width;
-                weakSelf.imageView.frame = CGRectMake((ScreenWidth - 200)/2.0, 50, 200, 200 * scale);
+                weakSelf.imageView.frame = CGRectMake((KScreenWidth - 200)/2.0, 50, 200, 200 * scale);
                 weakSelf.imageView.image = image;
             }
         }];
@@ -69,7 +73,7 @@
                 NSLog(@"取消了选择");
             }else{
                 CGFloat scale = image.size.height / image.size.width;
-                weakSelf.imageView.frame = CGRectMake((ScreenWidth - 200)/2.0, 50, 200, 200 * scale);
+                weakSelf.imageView.frame = CGRectMake((KScreenWidth - 200)/2.0, 50, 200, 200 * scale);
                 weakSelf.imageView.image = image;
             }
         }];
@@ -81,7 +85,7 @@
                 NSLog(@"取消了选择");
             }else{
                 CGFloat scale = image.size.height / image.size.width;
-                weakSelf.imageView.frame = CGRectMake((ScreenWidth - 200)/2.0, 50, 200, 200 * scale);
+                weakSelf.imageView.frame = CGRectMake((KScreenWidth - 200)/2.0, 50, 200, 200 * scale);
                 weakSelf.imageView.image = image;
             }
         }];
@@ -93,7 +97,7 @@
                 NSLog(@"取消了选择");
             }else{
                 CGFloat scale = image.size.height / image.size.width;
-                weakSelf.imageView.frame = CGRectMake((ScreenWidth - 200)/2.0, 50, 200, 200 * scale);
+                weakSelf.imageView.frame = CGRectMake((KScreenWidth - 200)/2.0, 50, 200, 200 * scale);
                 weakSelf.imageView.image = image;
             }
         }];

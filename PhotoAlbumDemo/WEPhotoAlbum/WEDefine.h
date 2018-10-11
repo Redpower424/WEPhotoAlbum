@@ -14,7 +14,8 @@
 #define KScreenHeight [UIScreen mainScreen].bounds.size.height
 #define KStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height       //状态栏高度
 #define KNaviHeightWithoutStatusBar 44                                                      //导航栏除去状态栏的高度
-#define KNaviHeight KStatusBarHeight + KNaviHeightWithoutStatusBar                          //导航栏高度
+#define KNaviHeight (KStatusBarHeight + KNaviHeightWithoutStatusBar)                        //导航栏高度
+#define KTabbarHeight 49        //底栏高度
 
 #define IS_iPhone4S [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 4S "]
 #define IS_iPhone5 [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 5 "]
@@ -29,12 +30,7 @@
 #define IS_iPhone8Plus [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone 8 Plus"]
 #define IS_iPhoneX [[WEDeviceModel GetCurrentDeviceModel] containsString:@"iPhone X"]
 
-#ifdef IS_iPhoneX
-#define KTabbarHeight 83        //底栏高度
-#else
-#define
-#define KTabbarHeight 49
-#endif
+
 
 #define IMAGEWITHBUNDLE_NAME(name) [UIImage imageNamed:[NSString stringWithFormat:@"WEPhotoAlbumBundle.bundle/%@", name]]
 

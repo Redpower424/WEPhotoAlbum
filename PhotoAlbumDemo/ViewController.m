@@ -46,7 +46,7 @@
     [multipleButton addTarget:self action:@selector(multipleButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:multipleButton];
     
-    if (IS_iPhoneX) {
+    if (IS_iPhone7) {
         NSLog(@"是iPhone7啊");
     }
     

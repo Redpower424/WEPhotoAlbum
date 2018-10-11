@@ -65,7 +65,7 @@
 }
 
 #pragma mark - getter
--(UIScrollView *)scrollView{
+- (UIScrollView *)scrollView{
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         _scrollView.backgroundColor = [UIColor clearColor];
